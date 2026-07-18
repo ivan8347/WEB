@@ -1,0 +1,25 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+body
+{
+    font-size:16px;
+    font-family:Roboto Condensed;
+}
+p
+{
+    text-align:justify;
+}
+p:first-letter
+{
+    margin-left:32px;
+    font-size:32px;
+    font-family:'Segoe Script';
+}
+figure
+{
+    text-align:center;
+}
+figcaption
+{
+    font-style:italic;
+}
