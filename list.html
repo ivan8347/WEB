@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Списки</title>
+    <style>
+        ul 
+        {
+            list-style: none; /* убираем стандартные точки */
+            padding-left: 0; /* убираем отступ, который даёт браузер */
+        }
+
+            ul li
+            {
+                padding-left: 1.2em; /* место под маркер */
+            }
+
+                ul li::before {
+                    content: "\1FAE9"; /* эмодзи ☼ (U+263C) */
+                    display: inline-block;
+                    margin-right: 0.5em;
+                }
+    </style>
+</head>
+<body>
+
+    <h1>Списки</h1>
+    <h2>Маркированный список</h2>
+    <uL>
+        <li>Элемент 1 </li>
+        <li>Элемент 2</li>
+        <li>Элемент 3</li>
+        <li>Элемент 4</li>
+        <li>Элемент 5</li>
+    </uL>
+    <ol start="10">
+        <li>Элемент 1</li>
+        <li>Элемент 2</li>
+        <li>Элемент 3</li>
+        <li>Элемент 4</li>
+        <li>Элемент 5</li>
+    </ol>
+    
+</body>
+</html>
