@@ -5,42 +5,192 @@
     <meta charset="utf-8" />
     <title>Списки</title>
     <style>
-        ul 
+        ul, ol 
         {
             list-style: none; /* убираем стандартные точки */
             padding-left: 0; /* убираем отступ, который даёт браузер */
         }
 
-            ul li
+            ul li, ol li 
             {
-                padding-left: 1.2em; /* место под маркер */
+                padding-left: 20px; /* место под иконку: ширина + отступ справа */
+                line-height: 20px; /* чтобы строка не схлопывалась, если картинка выше текста */
             }
 
-                ul li::before {
-                    content: "\1FAE9"; /* эмодзи ☼ (U+263C) */
+                ul li::before, ol li::before 
+                {
+                    content: "";
                     display: inline-block;
-                    margin-right: 0.5em;
+                    margin-right: 8px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    vertical-align: middle;
                 }
+
+                ul li::before 
+                {
+                    width:16px;
+                    height:16px;
+                    background-image: url("img/bitcoin.ico");
+                }
+                ol li::before
+                {
+                    width:48px;
+                    height:48px;
+                    background-image: url("img/single-2403253-1.png");
+                }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tbody tr:hover {
+            background-color: #f0f7ff;
+        }
     </style>
+    
+
 </head>
 <body>
 
     <h1>Списки</h1>
     <h2>Маркированный список</h2>
-    <uL>
+    <ul>
         <li>Элемент 1 </li>
         <li>Элемент 2</li>
         <li>Элемент 3</li>
         <li>Элемент 4</li>
         <li>Элемент 5</li>
-    </uL>
-    <ol start="10">
+    </ul>
+    <ol>
         <li>Элемент 1</li>
         <li>Элемент 2</li>
         <li>Элемент 3</li>
         <li>Элемент 4</li>
         <li>Элемент 5</li>
     </ol>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Процессор</th>
+                <th>Год выпуска</th>
+                <th>x86‑64</th>
+                <th>PPro</th>
+                <th>MMX</th>
+                <th>Версия SSE</th>
+                <th>3DNow!</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pentium</td>
+                <td>1993</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pentium Pro</td>
+                <td>1995</td>
+                <td style="font-size:24px;"> 👆 </td>
+                <td>x</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pentium MMX</td>
+                <td>1997</td>
+                <td></td>
+                <td></td>
+                <td>x</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pentium II</td>
+                <td></td>
+                <td></td>
+                <td>x</td>
+                <td>x</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Celeron</td>
+                <td>1998</td>
+                <td></td>
+                <td>x</td>
+                <td>x</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pentium III</td>
+                <td>1999</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>1</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pentium 4</td>
+                <td>2000</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Celeron</td>
+                <td></td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>1</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Celeron</td>
+                <td>2002</td>
+                <td></td>
+                <td>x</td>
+                <td>x</td>
+                <td>2</td>
+                <td></td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+
     
+   
+
 </body>
 </html>
