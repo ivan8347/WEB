@@ -40,4 +40,63 @@ ol ul
 
 /*------------------------------------*/
 
+table 
+{
+    /*width: 100%;*/
+    margin: 15px auto;
+    border: solid 4px;
+    border-collapse: collapse;
+    text-align: center;
+    table-layout:fixed;
+}
+thead
+{
+    background-color:#5555BB;
+    color:white;
+}
+thead tr
+{
+    border:solid 2px;
+}
+thead th
+{
+    padding:15px 32px;
+}
 
+th, td 
+{
+    border: solid 1px;
+    width: 25%;
+}
+
+tbody th
+{
+   /* text-align:left;*/
+    padding-left:5px;
+}
+caption
+{
+    font-style:italic;
+    text-align:center;
+    margin:15px;
+}
+tbody tr:nth-child(even)
+{
+    background-color: #fafafa;
+}
+
+/*tbody tr:hover {
+    background-color: #808080;
+}*/
+/*---------------------------------------------------------*/
+
+table:hover 
+{
+    box-shadow:
+     -40px -40px 32px 50px lightgrey,
+     40px 40px 50px 0px darkgreen;
+}
+tr:hover
+{
+    box-shadow:inset 1px -2px 4px 4px lightblue;
+}
