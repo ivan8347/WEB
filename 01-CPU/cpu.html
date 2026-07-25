@@ -234,480 +234,72 @@
         Для чего предназначены дополнительные наборы команд? В первую очередь — для увеличения быстродействия при выполнении наиболее частых операций. Одна команда из дополнительного набора, как правило, выполняет действие, для которого понадобилась бы небольшая процедура, состоящая из команд основного набора, причём специальная команда выполняется процессором быстрее, чем заменяющая её последовательность. Однако в 99% случаев ничего такого, чего нельзя было бы сделать с помощью основных команд, команды из дополнительного набора также не делают. Таким образом, упомянутая выше программная проверка поддержки дополнительных наборов команд процессором должна выполнять очень простую функцию: если, например, процессор поддерживает SSE — значит, считать будем быстро и с помощью команд из набора SSE. Если нет — будем считать медленнее, с помощью команд из основного набора. Корректно написанная программа обязана действовать именно так. Впрочем, сейчас практически никто не проверяет у процессора наличие поддержки MMX, т.к. все CPU, вышедшие за последние 10 лет, этот набор поддерживают гарантированно. Для справки приведём табличку, на которой обобщена информация о поддержке различных расширенных наборов команд различными десктопными (предназначенными для настольных ПК) и некоторыми мобильными процессорами.
     </p>
 
-    <div class="table-wrapper">
-        <table>
+    <table>
+        <thead>
+            <tr>
+                <th> Процессор </th>
+                <th> Год выпуска</th>
+                <th>Количество ядер </th>
+                <th> Количество потоков</th>
+               
+            </tr>
+        </thead>
 
-            <thead>
-                <tr>
-                    <th>Процессор</th>
-                    <th>Год выпуска</th>
-                    <th>x86-64</th>
-                    <th>PPro</th>
-                    <th>MMX</th>
-                    <th>Версия SSE</th>
-                    <th>3DNow!</th>
+        <tbody>
+            <tr>
+                <td>Core-i3 2120</td>
+                <td>2011</td>
+                <td>2</td>
+                <td>4</td>
+            </tr>
 
-                </tr>
-            </thead>
+            <tr>
+                <td>Core-i5 2400</td>
+                <td>2011</td>
+                <td>4</td>
+                <td>4</td>
+          
+            </tr> 
+            <tr>
+                <td>Core-i7 2700</td>
+                <td>2011</td>
+                <td>4</td>
+                <td>8</td>
+          
+            </tr>
+            <tr>
+                <td>Core-i7 3970X</td>
+                <td>2011</td>
+                <td>6</td>
+                <td>12</td>
+          
+            </tr>
+            <tr>
+                <td>Core-i3 14100</td>
+                <td>2024</td>
+                <td>4</td>
+                <td>8</td>
+          
+            </tr>
+            <tr>
+                <td>Core-i5 14500</td>
+                <td>2024</td>
+                <td>14</td>
+                <td>20</td>
+          
+            </tr>
+            <tr>
+                <td>Core-i7 14700</td>
+                <td>2024</td>
+                <td>20</td>
+                <td>28</td>
+          
+            </tr>
 
-            <tbody>
-                <tr>
-                    <td><i>Процессоры Intel</i></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium</td>
-                    <td>1993</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium Pro</td>
-                    <td>1995</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium MMX</td>
-                    <td>1997</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium II</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td></td>
-                </tr>
+        </tbody>
 
-                <tr>
-                    <td>Celeron</td>
-                    <td>1998</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>Pentium III</td>
-                    <td>1999</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>1</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium 4</td>
-                    <td>2000</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>2</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>1</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron</td>
-                    <td>2002</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>2</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium M</td>
-                    <td>2003</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>2</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium 4</td>
-                    <td>2004</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron D</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium D, EE</td>
-                    <td>2005</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron D</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron</td>
-                    <td>2006</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3S</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron M</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Core Solo, Duo</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Core 2</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3S</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Core 2</td>
-                    <td>2007</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>4.1</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron M</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3S</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium (DC)</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pentium (DC, M)</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Atom</td>
-                    <td>2008</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3S</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Celeron (DC)</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Core i7</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>4.2</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Core i3, i5</td>
-                    <td>2009</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>4.2</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Core i9</td>
-                    <td>2010</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>4.2</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><i>Процессоры AMD</i></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>K5</td>
-                    <td>1996</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>K6</td>
-                    <td>1997</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>K6-3D, K6-2+</td>
-                    <td>1998</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>K6-III</td>
-                    <td>1999</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Duron</td>
-                    <td>2000</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon XP</td>
-                    <td>2001</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>1</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon 4 (M)</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Duron</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Athlon 64</td>
-                    <td>2003</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>2</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Sempron</td>
-                    <td>2004</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>1(2)</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon XP-M</td>
-                    <td>2005</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>2</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Sempron</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>2(3)</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon (64) X2</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Turion (M)</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sempron (M)</td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Phenom</td>
-                    <td>2007</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>4.a</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon X2</td>
-                    <td>2008</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>4.a</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon Neo</td>
-                    <td>2009</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>3</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Phenom II</td>
-                    <td></td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td style="font-size:24px;">✌️</td>
-                    <td>4.a</td>
-                    <td style="font-size:24px;">✌️</td>
-                </tr>
-                <tr>
-                    <td>Athlon II, X3, X4</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
+    
+    </table>
 
     <p>
         Примечания:
