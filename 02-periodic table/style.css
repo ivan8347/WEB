@@ -1,0 +1,91 @@
+﻿.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Легенда */
+.legend {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin: 10px auto 20px;
+    width: 400px;
+    font-size: 14px;
+}
+
+.lg {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 6px;
+}
+
+/* Таблица */
+.tm {
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    grid-auto-rows: 60px;
+    gap: 4px;
+    margin: 20px auto;
+    width: max-content;
+}
+
+.cell {
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+    .cell:hover {
+        background: #cce5ff;
+        transform: scale(1.1);
+    }
+
+/* Цветовые группы */
+.c1 {
+    background: #ffcccc;
+}
+
+.c2 {
+    background: #ffe5cc;
+}
+
+.c3 {
+    background: #ffffcc;
+}
+
+.c4 {
+    background: #e5ffcc;
+}
+
+.c5 {
+    background: #ccffe5;
+}
+
+.c6 {
+    background: #cce5ff;
+}
+
+.c7 {
+    background: #e5ccff;
+}
+
+.c8 {
+    background: #ffccff;
+}
+
+.c9 {
+    background: #ffccf2;
+}
+
+.c10 {
+    background: #ffd9cc;
+}

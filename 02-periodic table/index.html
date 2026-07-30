@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>Статичная карточка элемента</title>
+    <style>
+        :root {
+            --bg: #f4f6f8;
+            --border: #ccc;
+            --s-color: #ffe0b2;
+            --p-color: #e1f5fe;
+            --d-color: #e8eaf6;
+            --hover-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            padding: 20px;
+            margin: 0;
+            color: #333;
+        }
+
+       
+        /* Контейнер: теперь блоки идут вертикально (column) */
+        .layout-wrapper {
+            display: flex;
+            flex-direction: column; /* <-- ключевое изменение */
+            align-items: center; /* центрируем карточку и таблицу */
+            gap: 24px; /* расстояние между карточкой и таблицей */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Стили таблицы */
+        .periodic-table {
+
+            display: grid;
+            grid-template-columns: repeat(18, 56px);
+            gap: 2px;
+            background: var(--border);
+            /* Фиксируем ширину таблицы, чтобы она не прыгала */
+            width: 100%;
+        }
+
+        .cell {
+            width: 56px;
+            height: 72px;
+            background: white;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 4px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+            position: relative;
+        }
+
+            .cell:hover {
+                transform: scale(1.03);
+                box-shadow: var(--hover-shadow);
+                z-index: 10;
+                /* Опционально: подсветка карточки при наведении на ячейку */
+                border-color: #007bff;
+            }
+
+        .atomic-number {
+            font-size: 11px;
+            text-align: right;
+            width: 100%;
+            color: #555;
+        }
+
+        .symbol {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 1;
+            color: #000;
+        }
+
+        .name {
+            font-size: 9px;
+            text-align: center;
+            min-height: 22px;
+            color: #333;
+        }
+
+        .mass {
+            font-size: 10px;
+            text-align: right;
+            color: #555;
+        }
+
+        .s-block {
+            background-color: var(--s-color);
+        }
+
+        .p-block {
+            background-color: var(--p-color);
+        }
+
+        .d-block {
+            background-color: var(--d-color);
+        }
+
+        .cell.empty {
+            background: transparent;
+            border: none;
+            cursor: default;
+        }
+
+        /* --- СТИЛИ КАРТОЧКИ (теперь сверху) --- */
+        #info-card {
+            width: 100%; /* можно сделать шире, т.к. теперь она над таблицей */
+            background: white;
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: var(--hover-shadow);
+            min-height: 100px; /* фиксируем высоту, чтобы не прыгало */
+            display: flex;
+            flex-direction: row; /* внутри карточки колонки: слева картинка/иконка, справа текст (опционально) */
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+            #info-card h2 {
+                margin: 0 0 15px 0;
+                color: #222;
+                font-size: 24px;
+                border-bottom: 2px solid #eee;
+                padding-bottom: 10px;
+            }
+
+        .card-info-row {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .card-label {
+            color: #666;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .card-value {
+            color: #000;
+        }
+
+        /* Состояние "по умолчанию" в карточке */
+        #info-card.empty h2,
+        #info-card.empty .card-value {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-wrapper">
+
+        <!-- ТАБЛИЦА -->
+        <div class="periodic-table">
+            <div class="layout-wrapper">
+
+                <!-- СТАТИЧНАЯ КАРТОЧКА ТЕПЕРЬ СВЕРХУ -->
+                <div id="info-card" class="empty">
+                    <h2 id="card-title">Выберите элемент</h2>
+
+                    <div class="card-info-row">
+                        <span class="card-label">Атомная масса:</span>
+                        <span class="card-value" id="card-mass">-</span>
+                    </div>
+                    <div class="card-info-row">
+                        <span class="card-label">Электронная конфигурация:</span>
+                        <span class="card-value" id="card-config">-</span>
+                    </div>
+                    <div class="card-info-row">
+                        <span class="card-label">Электроотрицательность:</span>
+                        <span class="card-value" id="card-electroneg">-</span>
+                    </div>
+
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; font-size: 13px; color: #777;">
+                        Карточка всегда на месте (сверху). Данные обновляются при наведении.
+                    </div>
+                </div>
+
+                <!-- ТАБЛИЦА ТЕПЕРЬ СНИЗУ -->
+                <div class="periodic-table">
+                    <!-- Период 1 -->
+                    <div class="cell s-block"
+                         onmouseenter="updateCard(this)"
+                         data-name="Водород"
+                         data-symbol="H"
+                         data-mass="1.008"
+                         data-config="1s¹"
+                         data-electroneg="2.20">
+                        <span class="atomic-number">1</span>
+                        <span class="symbol">H</span>
+                        <span class="name">Водород</span>
+                        <span class="mass">1.008</span>
+                    </div>
+                   
+
+                    <!-- Пустые ячейки для сетки -->
+                    <div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+
+                    <div class="cell p-block"
+                         onmouseenter="updateCard(this)"
+                         data-name="Гелий"
+                         data-symbol="He"
+                         data-mass="4.0026"
+                         data-config="1s²"
+                         data-electroneg="нет">
+                        <span class="atomic-number">2</span>
+                        <span class="symbol">He</span>
+                        <span class="name">Гелий</span>
+                        <span class="mass">4.0026</span>
+                    </div>
+
+                    <!-- Период 2 (фрагмент для примера) -->
+                    <div class="cell s-block"
+                         onmouseenter="updateCard(this)"
+                         data-name="Литий"
+                         data-symbol="Li"
+                         data-mass="6.941"
+                         data-config="[He] 2s¹"
+                         data-electroneg="0.98">
+                        <span class="atomic-number">3</span>
+                        <span class="symbol">Li</span>
+                        <span class="name">Литий</span>
+                        <span class="mass">6.941</span>
+                    </div>
+                    <div class="cell s-block"
+                         onmouseenter="updateCard(this)"
+                         data-name="Бериллий"
+                         data-symbol="Be"
+                         data-mass="9.0122"
+                         data-config="[He] 2s²"
+                         data-electroneg="1.57">
+                        <span class="atomic-number">4</span>
+                        <span class="symbol">Be</span>
+                        <span class="name">Бериллий</span>
+                        <span class="mass">9.0122</span>
+                    </div>
+                    <!-- Остальные ячейки можно добавить по аналогии -->
+                </div>
+
+              
+
+            </div>
+
+            <script>
+                function updateCard(cell) {
+                    // Получаем данные из атрибутов data-* ячейки
+                    const name = cell.getAttribute('data-name');
+                    const symbol = cell.getAttribute('data-symbol');
+                    const mass = cell.getAttribute('data-mass');
+                    const config = cell.getAttribute('data-config');
+                    const electroneg = cell.getAttribute('data-electroneg');
+
+                    // Обновляем текст в карточке
+                    document.getElementById('card-title').textContent = `${name} (${symbol})`;
+                    document.getElementById('card-mass').textContent = mass;
+                    document.getElementById('card-config').textContent = config;
+                    document.getElementById('card-electroneg').textContent = electroneg;
+
+                    // Убираем класс empty, если карточка заполнена
+                    const card = document.getElementById('info-card');
+                    card.classList.remove('empty');
+                }
+
+                // Сброс карточки, когда мышь уходит со всей таблицы
+                const table = document.querySelector('.periodic-table');
+                table.addEventListener('mouseleave', () => {
+                    const card = document.getElementById('info-card');
+                    card.classList.add('empty');
+
+                    document.getElementById('card-title').textContent = 'Выберите элемент';
+                    document.getElementById('card-mass').textContent = '-';
+                    document.getElementById('card-config').textContent = '-';
+                    document.getElementById('card-electroneg').textContent = '-';
+                });
+            </script>
+
+</body>
+</html>
