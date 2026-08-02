@@ -20,7 +20,7 @@ body
 {
     display: grid;
     grid-template-columns: 25px /* период */
-    repeat(18, 67px); /* группы */
+    repeat(18, 70px); /* группы */
     gap: 2px;
 }
 
@@ -39,7 +39,10 @@ body
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
+
+
 .cell {
+    
     height: 80px;
     display: flex;
     flex-direction: column;
@@ -94,11 +97,11 @@ body
 }
 
 .p-block {
-    background-color: #e1f5fe;
+    background-color: #99ffcc;
 }
 
 .d-block {
-    background-color: #e8eaf6;
+    background-color: #99ffff;
 }
 
 .cell.empty {
