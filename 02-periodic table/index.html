@@ -70,13 +70,13 @@
             --square-vw: 18;
             --minfont: calc(var(--base-vw) * var(--min) / var(--sidebar-shrink) / 100);
             --property-rows: 6;
-            --row-height: calc((var(--square) - var(--2margin)) / var(--property-rows));
+            --row-height: calc((var(--square) - var(--double-margin)) / var(--property-rows));
             --groups: 18;
             --grid-space: calc(5 * var(--aspect-ratio)); /* HACK: these are too complex */
             --icon-height: 1rem;
-            --tab-height: calc(var(--icon-height) + var(--2margin));
+            --tab-height: calc(var(--icon-height) + var(--double-margin));
             --border-width: calc(var(--gridgap) / 2);
-            --track-height: var(--2margin);
+            --track-height: var(--double-margin);
             --periods: 1em;
             --button-size: calc(2 * var(--track-height));
             --bordercolor: rgba(var(--text), 0.12);
@@ -86,7 +86,7 @@
             --tab-hover: rgb(45,190,252);
             --tab-inactive: #999;
             /*** Derived ***/
-            --2margin: calc(var(--margin) * 2);
+            --double-margin: calc(var(--margin) * 2);
             --gridgap: calc(var(--grid-space) * var(--sidebar-shrink) / var(--groups));
             --fixedgridgap: var(--gridgap); /* HACK: these are too complex */
             --fixedborderwidth: var(--border-width);
@@ -113,7 +113,7 @@
 
         .KeyRegion {
             --margin: calc(0.3rem * var(--sidebar-shrink));
-            --2margin: calc(var(--margin) * 2);
+            --double-margin: calc(var(--margin) * 2);
         }
 
         .Dark {
@@ -310,7 +310,7 @@
         .Logo + label,
         .WideButton + label,
         nav > label {
-            padding: 0 var(--2margin);
+            padding: 0 var(--double-margin);
         }
 
         header > input:last-of-type + label {
@@ -519,7 +519,7 @@
             flex-direction: row;
             justify-content: space-between;
             text-shadow: 0 1px 2px rgba(var(--text),0.2);
-            flex: 0 0 calc(var(--square) - var(--2margin));
+            flex: 0 0 calc(var(--square) - var(--double-margin));
             min-width: 0;
             white-space: nowrap;
         }
@@ -546,7 +546,7 @@
             grid-auto-flow: column;
             grid-auto-columns: 1fr;
             grid-template-rows: repeat(var(--property-rows), 1fr);
-            grid-gap: 0 var(--2margin);
+            grid-gap: 0 var(--double-margin);
             margin: 0;
             scrollbar-width: none;
         }
@@ -608,7 +608,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end; /* push sidebar compounds right */
-            padding: 0 var(--2margin);
+            padding: 0 var(--double-margin);
             break-inside: avoid;
             outline: 0 solid var(--tab-hover);
         }
@@ -682,7 +682,7 @@
 
         .Slider > div,
         .Slider > label {
-            margin: var(--margin) var(--2margin);
+            margin: var(--margin) var(--double-margin);
         }
 
         .Slider input[type="button"] {
@@ -789,7 +789,7 @@
         ol {
             display: grid;
             transform-style: preserve-3d; /* create stacking context for isotopes */
-            padding: calc(var(--margin)*1.5) var(--2margin) var(--2margin) var(--margin);
+            padding: calc(var(--margin)*1.5) var(--double-margin) var(--double-margin) var(--margin);
         }
 
         ol {
@@ -878,7 +878,7 @@
 
         .Parentheses {
             font-size: 0.7em;
-            margin: var(--margin) var(--2margin);
+            margin: var(--margin) var(--double-margin);
             align-self: center;
         }
 
@@ -1023,7 +1023,7 @@
         }
 
         blockquote {
-            padding: 0 calc(2 * var(--2margin));
+            padding: 0 calc(2 * var(--double-margin));
             font-size: min(0.8em, 32px);
             margin: 0;
         }
@@ -1056,7 +1056,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin: 0 calc(var(--square) + 2 * var(--2margin));
+            margin: 0 calc(var(--square) + 2 * var(--double-margin));
             --square-vw: 20; /* recalc --square in :root or flips between 18/20vw from top/sidebar on Reset */
         }
 
@@ -1067,7 +1067,7 @@
         addr {
             flex-basis: 100%;
             color: GrayText;
-            margin: var(--2margin) 0;
+            margin: var(--double-margin) 0;
             font-size: 0.6em;
             text-align: center;
         }
@@ -1422,7 +1422,7 @@
         }
 
         .Notice {
-            margin: var(--2margin) var(--margin) 0;
+            margin: var(--double-margin) var(--margin) 0;
         }
 
         main,
@@ -1472,11 +1472,11 @@
 
             .KeyRegion > * {
                 display: flex;
-                padding: var(--2margin);
+                padding: var(--double-margin);
             }
 
             .KeyRegion > :not(.IsotopeKey) {
-                gap: var(--2margin);
+                gap: var(--double-margin);
             }
 
             .DataRegion > * {
@@ -1510,7 +1510,7 @@
 
         /* Height-width auto scaling */
         body > * {
-            padding: 0 min((100% - 100 * var(--aspect-ratio)) / 2, (100% - var(--min) / var(--sidebar-shrink) * var(--groupfactor) - var(--2margin)) / 2); /* from ol min-width */
+            padding: 0 min((100% - 100 * var(--aspect-ratio)) / 2, (100% - var(--min) / var(--sidebar-shrink) * var(--groupfactor) - var(--double-margin)) / 2); /* from ol min-width */
         }
 
         html {
@@ -1526,7 +1526,7 @@
         ol {
             font-size: calc(var(--base-vw) * var(--aspect-ratio) * var(--sidebar-shrink) / var(--groupfactor));
             /* minfont already takes into account sidebar so undo it by multiplying so table is 768px wide minimum. */
-            min-width: calc(var(--min) * var(--groupfactor) - 2 * var(--2margin));
+            min-width: calc(var(--min) * var(--groupfactor) - 2 * var(--double-margin));
         }
 
         :root {
@@ -1592,7 +1592,7 @@
                 transform: translateX(calc(var(--rtl) * -100%));
                 z-index: 2;
                 position: absolute;
-                top: calc(1.25 * var(--2margin) + var(--tab-height));
+                top: calc(1.25 * var(--double-margin) + var(--tab-height));
                 bottom: 0;
                 font-size: 3vh;
                 margin: 0;
@@ -1622,14 +1622,14 @@
                 --min-rows: 2.5;
                 --margin: 1.7vw;
                 --icon-height: 5vw;
-                --track-height: var(--2margin);
+                --track-height: var(--double-margin);
                 --bordercolor: transparent;
                 --element-pad: 0.15em;
             }
 
             .KeyRegion {
                 --margin: 4.5px; /* Table has a min-width on mobile of 1024 pixels? */
-                --2margin: calc(var(--margin) * 2);
+                --double-margin: calc(var(--margin) * 2);
             }
 
             :root.Dark {
@@ -1767,7 +1767,7 @@
                 position: fixed;
                 pointer-events: none;
                 opacity: 1;
-                padding-inline-start: calc(3 * var(--2margin) + var(--tab-height) + var(--tab-height) * var(--logo-ratio));
+                padding-inline-start: calc(3 * var(--double-margin) + var(--tab-height) + var(--tab-height) * var(--logo-ratio));
                 padding-inline-end: calc(4 * var(--margin) + var(--tab-height));
             }
 
@@ -1869,20 +1869,7 @@
         /* font-variant-numeric: tabular-nums; MAYBE */
 
     </style>
-    <link rel="stylesheet" href="css/interactive-c9e4fcf.css" media="print" onload="this.media='all'; this.onload = null;">
-
-    <script nomodule>window.location.replace("https://old.ptable.com/");</script>
-    <script type="module">
-        if (!("reversed" in document.createElement("ol"))) window.location.replace("https://old.ptable.com/");
-        window.reportError = function (e) {
-            if (window.Bugsnag) window.Bugsnag.notify(e);
-            else console.log(e);
-        }
-    </script>
-
-    <script type="module" src="js/required-Ce3ug7cI.js" crossorigin></script>
-    <link rel="modulepreload" href="js/bugsnag-19N2UTKP.js">
-    <link rel="modulepreload" href="js/extra-OHM_j5Jg.js">
+   
 </head>
 <body>
     <!-- toggled classes: Overlay, SearchActive -->
@@ -1914,157 +1901,128 @@
                     <rect x="10" y="71" rx="4.5" ry="4.5" width="80" height="9" />
                 </g>
             </svg>
-
-            <nav>
-                <input type="radio" id="PropertyTab" name="Tab" checked>
-                <label for="PropertyTab">
-                    <svg viewBox="0 0 100 100">
-                        <g>
-                            <rect x="15" y="15" width="70" height="70" rx="5" fill="none" />
-                            <line x1="27.5" x2="72.5" y1="32.5" y2="32.5" />
-                            <line x1="27.5" x2="72.5" y1="50" y2="50" />
-                            <line x1="27.5" x2="60" y1="67.5" y2="67.5" />
-                        </g>
-                    </svg>
-                    <a href="#%D0%A1%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0">Свойства</a>
-                </label>
-                <input type="radio" id="ElectronTab" name="Tab">
-                <label for="ElectronTab">
-                    <svg viewBox="-50 -50 100 100">
-                        <g class="Dots">
-                            <circle cx="0" cy="17" r="4" />
-                            <circle cx="0" cy="-17" r="4" />
-
-                            <circle cx="0" cy="35" r="4" />
-                            <circle cx="30.31" cy="17.5" r="4" />
-                            <circle cx="30.31" cy="-17.5" r="4" />
-                            <circle cx="0" cy="-35" r="4" />
-                            <circle cx="-30.31" cy="-17.5" r="4" />
-                            <circle cx="-30.31" cy="17.5" r="4" />
-                        </g>
-                        <g>
-                            <g fill="none">
-                                <path d="M 0 -35 A 35 35 0 1 0 0 35 A 35 35 0 1 0 0 -35 Z M 0 -17 A 17 17 0 1 1 0 17 A 17 17 0 1 1 0 -17 Z" />
-                            </g>
-                        </g>
-                    </svg>
-                    <a href="#%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D1%8B">Электроны</a>
-                </label>
-                <input type="radio" id="IsotopeTab" name="Tab">
-                <label for="IsotopeTab">
-                    <svg viewBox="-50 -50 100 100">
-                        <g class="FillMask">
-                            <circle cx="9" cy="15.59" r="21" />
-                            <circle cx="9" cy="-15.59" r="21" />
-                            <circle cx="-18" cy="0" r="21" />
-
-                            <circle cx="19" cy="0" r="21" />
-                            <circle cx="-9.5" cy="-16.45" r="21" />
-                            <circle cx="-9.5" cy="16.45" r="21" />
-                        </g>
-                    </svg>
-                    <a href="#%D0%98%D0%B7%D0%BE%D1%82%D0%BE%D0%BF%D1%8B">Изотопы</a>
-                </label>
-                <input type="radio" id="CompoundTab" name="Tab">
-                <label for="CompoundTab">
-                    <svg viewBox="-50 -50 100 100">
-                        <g>
-                            <g fill="none">
-                                <polygon points="-19.92 5.75,0 -5.75,0 -28.75,-19.92 -40.25,-39.84 -28.75,-39.84 -5.75" />
-                                <polyline points="-19.92 -29.25,-30.31 -23.25,-30.31 -11.25" />
-
-                                <polygon points="19.92 5.75,39.84 -5.75,39.84 -28.75,19.92 -40.25,0 -28.75,0 -5.75" />
-                                <polyline points="19.92 -29.25,9.53 -23.25,9.53 -11.25" />
-
-                                <polygon points="0 40.25,19.92 28.75,19.92 5.75,0 -5.75,-19.92 5.75,-19.92 28.75" />
-                                <polyline points="0 5.25,-10.39 11.25,-10.39 23.25" />
-                            </g>
-                        </g>
-                    </svg>
-                    <a href="#Compounds">Compounds</a>
-                </label>
-            </nav>
-
-            <input type="checkbox" id="Wide" name="Wide" class="Button Raised WideButton">
-            <label for="Wide">
-                <svg viewBox="-1 -2 23 10">
-                    <g>
-                        <polygon points="0 0, 1 0, 1 1, 2 1, 2 5, 10 5, 10 3, 16 3, 16 1, 20 1, 20 0, 21 0, 21 7, 0 7" stroke="none" />
-                    </g>
-                </svg>
-                <a>Широкий</a>
-            </label>
-
-            <input type="radio" id="TopbarToggle" name="Layout" class="Button Raised Left Toggle" checked>
-            <label for="TopbarToggle">
+        </label>
+        <input type="radio" id="ResetTab" name="Tab" class="Logo"><label for="ResetTab"><a href="#"><img src="icon/ptable-logo.svg" alt="Ptable"></a></label>
+        <nav>
+            <input type="radio" id="PropertyTab" name="Tab" checked>
+            <label for="PropertyTab">
                 <svg viewBox="0 0 100 100">
-                    <title>Top bar</title>
                     <g>
-                        <rect x="10" y="10" width="80" height="80" rx="8" fill="none" />
-                        <line x1="37" x2="37" y1="10" y2="37" />
-                        <line x1="10" x2="85" y1="37" y2="37" />
+                        <rect x="15" y="15" width="70" height="70" rx="5" fill="none" />
+                        <line x1="27.5" x2="72.5" y1="32.5" y2="32.5" />
+                        <line x1="27.5" x2="72.5" y1="50" y2="50" />
+                        <line x1="27.5" x2="60" y1="67.5" y2="67.5" />
                     </g>
                 </svg>
+                <a href="#%D0%A1%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0">Свойства</a>
             </label>
-            <input type="radio" id="SidebarToggle" name="Layout" class="Button Raised Right Toggle">
-            <label for="SidebarToggle">
-                <svg viewBox="0 0 100 100">
-                    <title>Side bar</title>
-                    <g>
-                        <rect x="10" y="10" width="80" height="80" rx="8" fill="none" />
-                        <line x1="37" x2="37" y1="10" y2="90" />
-                        <line x1="10" x2="37" y1="37" y2="37" />
-                    </g>
-                </svg>
-            </label>
-
-            <input type="checkbox" id="DarkButton" name="Dark" class="Button Raised">
-            <label for="DarkButton">
+            <input type="radio" id="ElectronTab" name="Tab">
+            <label for="ElectronTab">
                 <svg viewBox="-50 -50 100 100">
-                    <title>Dark</title>
-                    <defs>
-                        <mask id="Moon">
-                            <rect x="-50" y="-50" width="100" height="100" fill="white" />
-                            <circle cx="40" cy="-15" r="45" fill="black" />
-                        </mask>
-                    </defs>
+                    <g class="Dots">
+                        <circle cx="0" cy="17" r="4" />
+                        <circle cx="0" cy="-17" r="4" />
+
+                        <circle cx="0" cy="35" r="4" />
+                        <circle cx="30.31" cy="17.5" r="4" />
+                        <circle cx="30.31" cy="-17.5" r="4" />
+                        <circle cx="0" cy="-35" r="4" />
+                        <circle cx="-30.31" cy="-17.5" r="4" />
+                        <circle cx="-30.31" cy="17.5" r="4" />
+                    </g>
                     <g>
-                        <circle cx="10" cy="0" r="45" mask="url(#Moon)" stroke="none" />
+                        <g fill="none">
+                            <path d="M 0 -35 A 35 35 0 1 0 0 35 A 35 35 0 1 0 0 -35 Z M 0 -17 A 17 17 0 1 1 0 17 A 17 17 0 1 1 0 -17 Z" />
+                        </g>
                     </g>
                 </svg>
+                <a href="#%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D1%8B">Электроны</a>
             </label>
+            <input type="radio" id="IsotopeTab" name="Tab">
+            <label for="IsotopeTab">
+                <svg viewBox="-50 -50 100 100">
+                    <g class="FillMask">
+                        <circle cx="9" cy="15.59" r="21" />
+                        <circle cx="9" cy="-15.59" r="21" />
+                        <circle cx="-18" cy="0" r="21" />
 
-            <input type="checkbox" id="SearchButton" class="Button Flat" name="Search">
-            <label for="SearchButton">
-                <svg viewBox="-50 -50 100 100" class="Magnify">
-                    <title>Search</title>
-                    <style>
-                        .Magnify * {
-                            transition: all 0.6s cubic-bezier(0.2,1,0.3,1);
-                        }
-
-                        :checked + label > .Magnify .Circle {
-                            cx: 0;
-                            cy: 0;
-                            ry: 0.1;
-                            rx: 40;
-                            transform: rotate(-45deg);
-                        }
-
-                        :checked + label > .Magnify .Line {
-                            cx: 0;
-                            cy: 0;
-                            rx: 40;
-                            transform: rotate(45deg) !important;
-                            transform-origin: 0 0 !important;
-                        }
-                    </style>
-                    <g>
-                        <ellipse class="Circle" cx="-10" cy="-10" rx="25" ry="25" fill="none" />
-                        <ellipse class="Line" cx=18.84 cy=21.34 rx=17.64 style="transform: rotate(50.8deg); transform-origin: 18.84% 21.34%;" ry="0.1" />
+                        <circle cx="19" cy="0" r="21" />
+                        <circle cx="-9.5" cy="-16.45" r="21" />
+                        <circle cx="-9.5" cy="16.45" r="21" />
                     </g>
                 </svg>
+                <a href="#%D0%98%D0%B7%D0%BE%D1%82%D0%BE%D0%BF%D1%8B">Изотопы</a>
             </label>
+            <input type="radio" id="CompoundTab" name="Tab">
+            <label for="CompoundTab">
+                <svg viewBox="-50 -50 100 100">
+                    <g>
+                        <g fill="none">
+                            <polygon points="-19.92 5.75,0 -5.75,0 -28.75,-19.92 -40.25,-39.84 -28.75,-39.84 -5.75" />
+                            <polyline points="-19.92 -29.25,-30.31 -23.25,-30.31 -11.25" />
+
+                            <polygon points="19.92 5.75,39.84 -5.75,39.84 -28.75,19.92 -40.25,0 -28.75,0 -5.75" />
+                            <polyline points="19.92 -29.25,9.53 -23.25,9.53 -11.25" />
+
+                            <polygon points="0 40.25,19.92 28.75,19.92 5.75,0 -5.75,-19.92 5.75,-19.92 28.75" />
+                            <polyline points="0 5.25,-10.39 11.25,-10.39 23.25" />
+                        </g>
+                    </g>
+                </svg>
+                <a href="#Compounds">Compounds</a>
+            </label>
+        </nav>
+
+        <input type="checkbox" id="Wide" name="Wide" class="Button Raised WideButton">
+        <label for="Wide">
+            <svg viewBox="-1 -2 23 10">
+                <g>
+                    <polygon points="0 0, 1 0, 1 1, 2 1, 2 5, 10 5, 10 3, 16 3, 16 1, 20 1, 20 0, 21 0, 21 7, 0 7" stroke="none" />
+                </g>
+            </svg>
+            <a>Широкий</a>
+        </label>
+
+        <input type="radio" id="TopbarToggle" name="Layout" class="Button Raised Left Toggle" checked>
+        <label for="TopbarToggle">
+            <svg viewBox="0 0 100 100">
+                <title>Top bar</title>
+                <g>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="none" />
+                    <line x1="37" x2="37" y1="10" y2="37" />
+                    <line x1="10" x2="85" y1="37" y2="37" />
+                </g>
+            </svg>
+        </label>
+        <input type="radio" id="SidebarToggle" name="Layout" class="Button Raised Right Toggle">
+        <label for="SidebarToggle">
+            <svg viewBox="0 0 100 100">
+                <title>Side bar</title>
+                <g>
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="none" />
+                    <line x1="37" x2="37" y1="10" y2="90" />
+                    <line x1="10" x2="37" y1="37" y2="37" />
+                </g>
+            </svg>
+        </label>
+
+        <input type="checkbox" id="DarkButton" name="Dark" class="Button Raised">
+        <label for="DarkButton">
+            <svg viewBox="-50 -50 100 100">
+                <title>Dark</title>
+                <defs>
+                    <mask id="Moon">
+                        <rect x="-50" y="-50" width="100" height="100" fill="white" />
+                        <circle cx="40" cy="-15" r="45" fill="black" />
+                    </mask>
+                </defs>
+                <g>
+                    <circle cx="10" cy="0" r="45" mask="url(#Moon)" stroke="none" />
+                </g>
+            </svg>
+        </label>
+
+        
     </header>
 
 
